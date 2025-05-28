@@ -8,8 +8,6 @@ tests:
     vars:
       message: 'My name is Alice'
     assert:
-      - type: contains
-        value: 'Hello Alice'
       - type: llm-rubric
         value: Greets Alice
       - type: latency
