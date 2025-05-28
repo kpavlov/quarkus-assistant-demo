@@ -11,17 +11,20 @@ typealias Symbol = String
 @Suppress("unused", "MagicNumber")
 @ApplicationScoped
 class MarketData {
-
-    data class StockPrice(val symbol: Symbol, val price: BigDecimal)
+    data class StockPrice(
+        val symbol: Symbol,
+        val price: BigDecimal,
+    )
 
     private val stockPrices: Map<Symbol, StockPrice>
 
-    private val symbols = listOf(
-        "AAPL",
-        "AMZN",
-        "GOOG",
-        "MSFT",
-    )
+    private val symbols =
+        listOf(
+            "AAPL",
+            "AMZN",
+            "GOOG",
+            "MSFT",
+        )
 
     init {
         stockPrices =
@@ -29,7 +32,7 @@ class MarketData {
                 StockPrice(
                     symbol,
                     // Generate a random price between 50 and 300
-                    BigDecimal((50_00..300_00).random()).movePointLeft(2)
+                    BigDecimal((50_00..300_00).random()).movePointLeft(2),
                 )
             }
     }
@@ -40,15 +43,16 @@ class MarketData {
     @Tool("returns current stock prices", name = "stockPrices")
     fun stockPrices(
         @P("list of stock symbols to query or empty list to query all symbols")
-        symbols: List<Symbol> = emptyList()
-    ): List<StockPrice> = if (symbols.isEmpty()) {
-        Log.debug("Received stock prices request for all symbols")
-        stockPrices.values.toList()
-    } else {
-        Log.debug("Received stock prices request for symbols: $symbols")
-        symbols
-            .map { it.uppercase() }
-            .mapNotNull { stockPrices[it] }
-            .toList()
-    }
+        symbols: List<Symbol> = emptyList(),
+    ): List<StockPrice> =
+        if (symbols.isEmpty()) {
+            Log.debug("Received stock prices request for all symbols")
+            stockPrices.values.toList()
+        } else {
+            Log.debug("Received stock prices request for symbols: $symbols")
+            symbols
+                .map { it.uppercase() }
+                .mapNotNull { stockPrices[it] }
+                .toList()
+        }
 }

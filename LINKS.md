@@ -26,5 +26,8 @@
 -  [Awesome MCP Servers](https://mcpservers.org/) - A collection of servers for the Model Context Protocol.
 - [github.com/kpavlov/langchain4j-kotlin](https://github.com/kpavlov/langchain4j-kotlin) - Unofficial LangChain4j Kotlin extensions
 - [mokksy.dev](https://mokksy.dev/) - AI services simulators for Integration testing
+                       
+## Tools
 
+[gitleaks](https://github.com/gitleaks/gitleaks) - Gitleaks is a tool for detecting secrets like passwords, API keys, and tokens in git repos, files, and whatever else you wanna throw at it via stdin.
 

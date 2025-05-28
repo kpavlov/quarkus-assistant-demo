@@ -1,0 +1,24 @@
+config:
+  - vars:
+      timezoneOffset: -180
+      sessionId: e55bcd28-8593-4707-8d70-2cba390df089
+
+tests:
+  - description: Hello
+    vars:
+      message: 'My name is Alice'
+    assert:
+      - type: contains
+        value: 'Hello Alice'
+      - type: llm-rubric
+        value: Greets Alice
+      - type: latency
+        threshold: 5000
+  - description: Get current time
+    vars:
+      message: 'What time is it now'
+    assert:
+      - type: llm-rubric
+        value: Provides information about time
+      - type: latency
+        threshold: 5000

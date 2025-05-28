@@ -27,6 +27,10 @@ or create an `.env` file in the root of the project with the following content:
 ```dotenv
 QUARKUS_LANGCHAIN4J_OPENAI_API_KEY=<your-openai-api-key>
 ```
+You may copy and modify the existing template:
+```shell
+cp -n sample.env .env 
+```
 
 Then, simply run the project in Dev mode:
 
@@ -70,21 +74,45 @@ In this case, `quarkus.langchain4j.openai.api-key` is generally not needed.
 Replace:
 
 ```xml
-        <dependency>
-            <groupId>io.quarkiverse.langchain4j</groupId>
-            <artifactId>quarkus-langchain4j-openai</artifactId>
-            <version>${quarkus-langchain4j.version}</version>
-        </dependency>
+<dependency>
+    <groupId>io.quarkiverse.langchain4j</groupId>
+    <artifactId>quarkus-langchain4j-openai</artifactId>
+    <version>${quarkus-langchain4j.version}</version>
+</dependency>
 ```
 
 with
 
 ```xml
-        <dependency>
-            <groupId>io.quarkiverse.langchain4j</groupId>
-            <artifactId>quarkus-langchain4j-ollama</artifactId>
-            <version>${quarkus-langchain4j.version}</version>
-        </dependency>
+<dependency>
+    <groupId>io.quarkiverse.langchain4j</groupId>
+    <artifactId>quarkus-langchain4j-ollama</artifactId>
+    <version>${quarkus-langchain4j.version}</version>
+</dependency>
 ```
+          
+## Open Telemetry
+        
+[otel-tul](https://github.com/ymtdzzz/otel-tui) - A terminal OpenTelemetry viewer
+
+```shell
+#brew install otel-tui
+otel-tui
+```
+        
+# Testing
+   
+Prerequisites:
+```shell
+brew install promptfoo
+cp -n promptfoo/sample.env promptfoo/.env2 
+```
+              
+Run evaluation
+```shell
+(cd promptfoo && promptfoo eval --watch --output output.yml --env-file ./.env) 
+
+```
+
 
 See [Links Page](LINKS.md).

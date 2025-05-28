@@ -1,0 +1,6 @@
+providers:
+  - file://http-provider.yaml
+
+scenarios:
+  - file://scenario1.yaml
+  - file://scenario2-safety.yaml

@@ -2,7 +2,7 @@
     "CdiManagedBeanInconsistencyInspection",
     "unused",
     "kotlin:S6517",
-    "CdiUnproxyableBeanTypesInspection"
+    "CdiUnproxyableBeanTypesInspection",
 )
 
 package com.example.chatbot
@@ -26,14 +26,12 @@ import java.time.temporal.ChronoUnit
     toolProviderSupplier = McpToolProviderSupplier::class,
     tools = [
         MarketData::class,
-        CustomerCallbackScheduler::class
+        CustomerCallbackScheduler::class,
     ],
     // no need to declare a retrieval augmentor here, it is automatically generated and discovered
 )
-@SessionScoped
 @ApplicationScoped
 interface Assistant {
-
     @SystemMessage(fromResource = "/prompts/assistant-system-prompt.md")
     @Moderate
     @Throws(ModerationException::class)

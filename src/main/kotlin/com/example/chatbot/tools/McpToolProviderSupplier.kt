@@ -10,15 +10,13 @@ import java.util.function.Supplier
 
 @ApplicationScoped
 class McpToolProviderSupplier : Supplier<ToolProvider> {
-
     @Inject
     @McpClientName("time")
-    private lateinit var timeClient : McpClient
+    private lateinit var timeClient: McpClient
 
-    override fun get(): ToolProvider {
-        return McpToolProvider.builder()
+    override fun get(): ToolProvider =
+        McpToolProvider
+            .builder()
             .mcpClients(timeClient)
             .build()
-    }
-
 }

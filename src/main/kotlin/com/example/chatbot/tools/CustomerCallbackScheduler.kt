@@ -17,7 +17,7 @@ class CustomerCallbackScheduler(
 ) {
     @Tool(
         "Schedules a callback call for a customer. Returns non-empty list of error messages on error",
-        name = "scheduleCallback"
+        name = "scheduleCallback",
     )
     @RunOnVirtualThread
     fun scheduleCallback(
@@ -64,8 +64,8 @@ class CustomerCallbackScheduler(
                             </div>
                         </body>
                     </html>
-                    """
-                )
+                    """,
+                ),
             )
             return emptyList()
         } catch (e: Exception) {
@@ -74,4 +74,3 @@ class CustomerCallbackScheduler(
         }
     }
 }
-

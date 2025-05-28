@@ -12,14 +12,14 @@ import jakarta.ws.rs.Produces
 @ApplicationScoped
 @Path("/_importmap")
 class ImportmapResource {
-
-    private val importmap = Aggregator(
-        mapOf(
-            "icons/" to "/icons/",
-            "components/" to "/components/",
-            "fonts/" to "/fonts/"
-        )
-    ).aggregateAsJson()
+    private val importmap =
+        Aggregator(
+            mapOf(
+                "icons/" to "/icons/",
+                "components/" to "/components/",
+                "fonts/" to "/fonts/",
+            ),
+        ).aggregateAsJson()
 
     // See https://github.com/WICG/import-maps/issues/235
     // This does not seem to be supported by browsers yet...
@@ -34,10 +34,10 @@ class ImportmapResource {
     fun importMapJson(): String =
         // language=javascript
         """
-            const im = document.createElement('script');
-            im.type = 'importmap';
-            im.textContent = JSON.stringify($importmap);
-            document.currentScript.after(im);
+        const im = document.createElement('script');
+        im.type = 'importmap';
+        im.textContent = JSON.stringify($importmap);
+        document.currentScript.after(im);
 
-            """.trimIndent()
+        """.trimIndent()
 }

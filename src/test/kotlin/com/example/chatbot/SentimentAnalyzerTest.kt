@@ -18,18 +18,16 @@ private val mockOpenai = MockOpenai(verbose = true)
 @QuarkusTest
 @TestProfile(SentimentAnalyzerTest.TestProfile::class)
 class SentimentAnalyzerTest {
-
     @Inject
     private lateinit var sentimentAnalyzer: SentimentAnalyzer
 
     class TestProfile : QuarkusTestProfile {
-        override fun getConfigOverrides(): Map<String, String> {
-            return mapOf(
+        override fun getConfigOverrides(): Map<String, String> =
+            mapOf(
                 "quarkus.langchain4j.openai.base-url" to mockOpenai.baseUrl(),
                 "quarkus.langchain4j.easy-rag.ingestion-strategy" to "OFF",
-                "app.sentiment-analyzer.model-name" to "mega-cool-gpt-1000"
+                "app.sentiment-analyzer.model-name" to "mega-cool-gpt-1000",
             )
-        }
     }
 
     @ParameterizedTest
@@ -37,14 +35,14 @@ class SentimentAnalyzerTest {
         "POSITIVE,POSITIVE",
         "NEGATIVE,NEGATIVE",
         "NEUTRAL,NEUTRAL",
-        "something wrong,NEUTRAL"
+        "something wrong,NEUTRAL",
     )
     @Tag("LLM")
     @Tag("integration")
     @Tag("rest")
     fun `LLM should analyzeSentiment`(
         reply: String,
-        expectedSentiment: Sentiment
+        expectedSentiment: Sentiment,
     ) = runTest {
         mockOpenai.completion {
             model = "mega-cool-gpt-1000"
@@ -58,4 +56,3 @@ class SentimentAnalyzerTest {
         result shouldBe expectedSentiment
     }
 }
-

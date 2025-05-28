@@ -19,7 +19,7 @@ class QuestionProcessor(
     private val mailer: Mailer,
     private val sentimentAnalyzer: SentimentAnalyzer,
     @VirtualThreads
-    executorService: ExecutorService
+    executorService: ExecutorService,
 ) {
     private val dispatcher = executorService.asCoroutineDispatcher()
 
@@ -40,9 +40,9 @@ class QuestionProcessor(
                     """
                     Message:
                     $question
-                """.trimIndent()
+                    """.trimIndent(),
                 ),
-                dispatcher
+                dispatcher,
             )
         }
     }
