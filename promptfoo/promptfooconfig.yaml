@@ -1,6 +1,9 @@
 providers:
-  - file://http-provider.yaml
+#  - file://http-provider.yaml
+  - file://ws-provider.yaml
 
 scenarios:
-  - file://scenario1.yaml
-  - file://scenario2-safety.yaml
+  - file://scenarios/chat-memory.yaml
+  - file://scenarios/time.yaml
+  - file://scenarios/stocks.yaml
+  - file://scenarios/moderation.yaml

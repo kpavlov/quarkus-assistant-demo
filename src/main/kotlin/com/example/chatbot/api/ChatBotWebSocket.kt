@@ -12,6 +12,7 @@ import io.quarkus.websockets.next.WebSocket
 import io.quarkus.websockets.next.WebSocketConnection
 import kotlinx.datetime.FixedOffsetTimeZone
 import kotlinx.datetime.UtcOffset
+import kotlinx.serialization.json.Json
 
 @WebSocket(path = "/chatbot")
 @Suppress("unused")
@@ -19,7 +20,12 @@ class ChatBotWebSocket(
     private val assistantService: AssistantService,
 ) {
     @OnOpen
-    fun onOpen(connection: WebSocketConnection): Answer = greeting
+    fun onOpen(connection: WebSocketConnection) {
+        if (connection.handshakeRequest().query() == "greet") {
+            // send greeting only to Web UI chat
+            connection.sendTextAndAwait(Json.encodeToString(greeting))
+        }
+    }
 
     @OnTextMessage
     suspend fun onMessage(
@@ -29,6 +35,9 @@ class ChatBotWebSocket(
             FixedOffsetTimeZone(offset = UtcOffset(minutes = -request.timezoneOffset))
         val userInfo = mapOf("timeZone" to userTimezone.id)
 
+        if (request.message.isBlank()) {
+            return Answer(message = "Sorry, I didn't get that?")
+        }
         val answer = assistantService.askQuestion(
             memoryId = request.sessionId,
             question = request.message,

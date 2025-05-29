@@ -1,7 +1,7 @@
 config:
   - vars:
       timezoneOffset: 240
-      sessionId: f7d4ce65-3129-4383-a61b-f9a486ce36b9
+      sessionId: promptfoo-moderation
 
 tests:
   - description: Detect moderation

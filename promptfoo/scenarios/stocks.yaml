@@ -1,0 +1,14 @@
+config:
+  - vars:
+      timezoneOffset: -180
+      sessionId: promptfoo-stocks
+
+tests:
+  - description: Get current time
+    vars:
+      message: 'What is current price of Apple?'
+    assert:
+      - type: llm-rubric
+        value: Provides information about APPL stock price
+      - type: latency
+        threshold: 5000

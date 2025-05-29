@@ -35,7 +35,7 @@ export class DemoChat extends LitElement {
 
     // Use secure WebSocket if the page is loaded over HTTPS
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const socket = new WebSocket(`${protocol}//${window.location.host}/chatbot`);
+    const socket = new WebSocket(`${protocol}//${window.location.host}/chatbot?greet`);
 
     // Add connection event handlers
     socket.onopen = () => {

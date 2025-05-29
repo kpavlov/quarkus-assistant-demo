@@ -1,0 +1,22 @@
+config:
+  - vars:
+      timezoneOffset: -180
+      sessionId: promptfoo-chat-memory
+
+tests:
+  - description: Hello
+    vars:
+      message: My name is Alice
+    assert:
+      - type: llm-rubric
+        value: Greets Alice
+      - type: latency
+        threshold: 5000
+  - description: Get name
+    vars:
+      message: What is my name?
+    assert:
+      - type: contains
+        value: Alice
+      - type: latency
+        threshold: 3000
