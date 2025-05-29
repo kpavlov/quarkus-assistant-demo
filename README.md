@@ -3,6 +3,8 @@
 This demo showcases a chatbot built with [Quarkus-LangChain4j](https://docs.quarkiverse.io/quarkus-langchain4j/dev/) and [Kotlin](https://kotlinlang.org/),
 powered by Large Language Models and [_Retrieval-Augmented Generation (RAG)_](https://en.wikipedia.org/wiki/Retrieval-augmented_generation).
 
+See also [Links Page](LINKS.md).
+
 The application uses WebSocket for real-time communication,
 [Easy RAG](https://docs.quarkiverse.io/quarkus-langchain4j/dev/easy-rag.html) with [Redis store](https://docs.quarkiverse.io/quarkus-langchain4j/dev/redis-store.html) for document retrieval,
 and integrates with local and [_Model Control Protocol (MCP)_](https://modelcontextprotocol.io)
@@ -31,6 +33,7 @@ You may copy and modify the existing template:
 ```shell
 cp -n sample.env .env 
 ```
+and edit the `.env` file with your OpenAI API key.
 
 Then, simply run the project in Dev mode:
 
@@ -42,6 +45,8 @@ mvn quarkus:dev
 
 Open your browser and navigate to http://localhost:8080. Click the red robot
 in the bottom right corner to open the chat window.
+             
+![web-ui.png](docs/web-ui.png)
 
 The chatbot is a financial assistant that:
 1. Answers questions about financial products using information retrieved from documents
@@ -99,20 +104,75 @@ with
 #brew install otel-tui
 otel-tui
 ```
-        
-# Testing
-   
-Prerequisites:
-```shell
-brew install promptfoo
-cp -n promptfoo/sample.env promptfoo/.env2 
-```
-              
-Run evaluation
-```shell
-(cd promptfoo && promptfoo eval --watch --output output.yml --env-file ./.env) 
 
+# Testing
+
+## Integration Testing
+
+Integration tests verify component interactions using `@QuarkusTest` with full application context.
+See [SentimentAnalyzerTest.kt](src/test/kotlin/com/example/chatbot/SentimentAnalyzerTest.kt) as an example.
+
+## Running LLM Evaluation Tests
+
+### Prerequisites
+
+1. **Install promptfoo:**
+   ```shell
+   brew install promptfoo
+   ```
+
+2. **Set up environment:**
+   ```shell
+   cp -n promptfoo/sample.env promptfoo/.env
+   ```
+   Then edit `promptfoo/.env` with your OpenAI API key
+
+3. **Start the application:**
+   ```shell
+   mvn quarkus:dev
+   ```
+
+## Run Tests
+
+### Interactive mode (recommended for development):
+
+```shell
+cd promptfoo
+promptfoo eval --watch --output output.yml --env-file ./.env
 ```
+or
+```shell
+make promptfoo
+```
+
+![promptfoo-results-cli.png](docs/promptfoo-results-cli.png)
+
+### Single run:
+```shell
+cd promptfoo
+promptfoo eval --output results.json --env-file ./.env
+```
+
+### View results in browser:
+```shell
+cd promptfoo
+promptfoo view
+```
+```shell
+make promptfoo-ui
+```    
+
+![promptfoo-ui.png](docs/promptfoo-ui.png)
+
+## Test Scenarios
+
+The evaluation will run 4 test suites:
+- **Chat Memory** - Context retention across messages
+- **Time Tool** - MCP time service integration
+- **Stock Data** - MarketData tool functionality
+- **Moderation** - Content safety validation
+
+All tests include latency assertions (< 5000ms).
 
 
 See [Links Page](LINKS.md).
