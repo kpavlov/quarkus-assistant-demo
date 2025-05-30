@@ -32,7 +32,7 @@ class ChatBotWebSocket(
         request: ApiRequest,
     ): Answer {
         val userTimezone =
-            FixedOffsetTimeZone(offset = UtcOffset(minutes = -request.timezoneOffset))
+            FixedOffsetTimeZone(UtcOffset(minutes = -request.timezoneOffset))
         val userInfo = mapOf("timeZone" to userTimezone.id)
 
         if (request.message.isBlank()) {
