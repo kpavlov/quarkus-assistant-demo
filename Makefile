@@ -10,8 +10,12 @@ run-dev:
 	mvn quarkus:dev
 
 .PHONY: promptfoo
+run-mcp:
+	(cd mcp && mvn quarkus:dev)
+
+.PHONY: promptfoo
 promptfoo:
-	(cd promptfoo && promptfoo eval --watch --output output.yml --env-file ./.env)
+	(cd promptfoo && promptfoo eval --watch --output output.yml --no-progress-bar --suggest-prompts 2 --env-file ./.env)
 
 .PHONY: promptfoo-ui
 promptfoo-ui:

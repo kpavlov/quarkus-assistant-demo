@@ -40,6 +40,23 @@ Then, simply run the project in Dev mode:
 ```
 mvn quarkus:dev
 ```
+         
+### Starting MCP Time server
+
+```shell
+(cd mcp && mvn quarkus:dev)
+```
+or just
+```shell
+make run-mcp
+```
+
+You may inspect the MCP server 
+running at http://localhost:8090/mcp/sse 
+with [MCP Inspector](https://github.com/modelcontextprotocol/inspector):
+```shell
+npx @modelcontextprotocol/inspector
+```
 
 ## Using the example
 
