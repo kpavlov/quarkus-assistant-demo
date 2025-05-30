@@ -9,6 +9,11 @@ tests:
       message: 'What is current price of Apple?'
     assert:
       - type: llm-rubric
-        value: Provides information about APPL stock price
+        value: |
+          The response should:
+           1. Provide stock price information. You can't know the correct price value
+           2. Include the correct stock symbol (AAPL)
+           3. Be formatted in a user-friendly way
+           4. Not include financial advice disclaimers
       - type: latency
         threshold: 5000
