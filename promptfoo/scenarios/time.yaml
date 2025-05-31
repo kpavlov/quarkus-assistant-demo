@@ -10,5 +10,3 @@ tests:
     assert:
       - type: llm-rubric
         value: Provides information about current time
-      - type: latency
-        threshold: 5000

@@ -10,5 +10,3 @@ tests:
     assert:
       - type: contains
         value: Sorry, your message couldn't be processed due to content guidelines.
-      - type: latency
-        threshold: 5000

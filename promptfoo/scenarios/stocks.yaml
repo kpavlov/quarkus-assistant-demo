@@ -8,12 +8,13 @@ tests:
     vars:
       message: 'What is current price of Apple?'
     assert:
+      - type: contains
+        value: AAPL
       - type: llm-rubric
         value: |
           The response should:
-           1. Provide stock price information. You can't know the correct price value
-           2. Include the correct stock symbol (AAPL)
-           3. Be formatted in a user-friendly way
-           4. Not include financial advice disclaimers
+           1. Provide some stock price information. You can't know the correct price value
+           2. Be formatted in a user-friendly way
+           3. Not include financial advice disclaimers
       - type: latency
-        threshold: 5000
+        threshold: 4500 # some specific latency requirement

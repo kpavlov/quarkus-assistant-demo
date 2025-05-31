@@ -15,7 +15,7 @@ run-mcp:
 
 .PHONY: promptfoo
 promptfoo:
-	(cd promptfoo && promptfoo eval --watch --output output.yml --no-progress-bar --suggest-prompts 2 --env-file ./.env)
+	(cd promptfoo && promptfoo eval --watch --output output.yml --no-progress-bar --env-file ./.env)
 
 .PHONY: promptfoo-ui
 promptfoo-ui:
