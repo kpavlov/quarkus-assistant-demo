@@ -20,16 +20,16 @@ run-mcp-docker:
 	 mvn -Dquarkus.container-image.group=sample \
 	  -Dquarkus.container-image.tag=latest \
 	  quarkus:image-build && \
-	 docker run --rm -i -p 8090:8090 sample/mcp-time \
+	 docker run --rm -i -p 8090:8090 sample/mcp \
 	 )
 
 .PHONY: promptfoo
 promptfoo:
-	(cd promptfoo && promptfoo eval --watch --output output.yml --no-progress-bar --env-file ./.env)
+	(cd promptfoo && promptfoo eval --watch --output output.yml --no-progress-bar --env-file .env)
 
 .PHONY: promptfoo-ui
 promptfoo-ui:
-	(cd promptfoo && promptfoo view --yes --env-file ./.env)
+	(cd promptfoo && promptfoo view --yes --env-file .env)
 
 lint:prepare
 	ktlint "!**/target/**"
