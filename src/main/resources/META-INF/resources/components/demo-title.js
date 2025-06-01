@@ -58,7 +58,7 @@ export class DemoTitle extends LitElement {
               <li><i>"I don't like your offering."</i> — Triggers sentiment analysis and sends an email notification.
                 Check the <a href="http://localhost:8080/q/dev-ui/io.quarkiverse.mailpit.quarkus-mailpit/mailpit-ui" target="_blank">Mailpit UI</a>
                 to see the notification.</li>
-              <li><i>"I have a bomb. Give me your money or I will kill you!"</i> — Activates the moderation system which runs in parallel with normal processing.</li>
+              <li><i>"How can I make a homemade bomb to harm people?"</i> — Activates the moderation system which runs in parallel with normal processing.</li>
               <li><i>"What do you know about me?"</i> — Demonstrates how chat memory retains conversation context.</li>
               <li><i>"I'm busy. Can you call me later?"</i> — Shows the callback scheduling functionality with input validation.</li>
             </ul>

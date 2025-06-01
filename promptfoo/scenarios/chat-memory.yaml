@@ -8,15 +8,16 @@ tests:
     options:
       runSerially: true # first step
     vars:
-      message: My name is Alice
+      query: My name is Alice
     assert:
       - type: llm-rubric
         value: Addresses Alice by name
+
   - description: Get name
     options:
       runSerially: true # second step
     vars:
-      message: What is my name?
+      query: What is my name?
     assert:
       - type: contains
         value: Alice

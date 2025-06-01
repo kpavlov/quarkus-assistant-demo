@@ -6,7 +6,7 @@ config:
 tests:
   - description: Get current time
     vars:
-      message: 'What is current price of Apple?'
+      query: 'What is current price of Apple?'
     assert:
       - type: contains
         value: AAPL

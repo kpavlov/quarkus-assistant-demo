@@ -6,7 +6,6 @@ config:
 tests:
   - description: Explain EasyTrade Starter Portfolio
     vars:
-      message: What is minimum starting investment?
       query: What is minimum starting investment?
     assert:
       - type: contains
