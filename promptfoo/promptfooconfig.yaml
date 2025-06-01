@@ -10,7 +10,7 @@ defaultTest:
 
 scenarios:
   - file://scenarios/chat-memory.yaml
-  - file://scenarios/time.yaml
+  - file://scenarios/moderation.yaml
   - file://scenarios/rag.yaml
   - file://scenarios/stocks.yaml
-  - file://scenarios/moderation.yaml
+  - file://scenarios/time.yaml
