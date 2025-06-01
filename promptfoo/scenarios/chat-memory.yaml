@@ -11,7 +11,7 @@ tests:
       message: My name is Alice
     assert:
       - type: llm-rubric
-        value: Greets Alice
+        value: Addresses Alice by name
   - description: Get name
     options:
       runSerially: true # second step
