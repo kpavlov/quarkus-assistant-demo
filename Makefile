@@ -9,13 +9,23 @@ test:
 run-dev:
 	mvn quarkus:dev
 
-.PHONY: promptfoo
+.PHONY: run-mcp
 run-mcp:
 	(cd mcp && mvn quarkus:dev)
 
+
+.PHONY: run-mcp-docker
+run-mcp-docker:
+	(cd mcp && \
+	 mvn -Dquarkus.container-image.group=sample \
+	  -Dquarkus.container-image.tag=latest \
+	  quarkus:image-build && \
+	 docker run --rm -i -p 8090:8090 sample/mcp-time \
+	 )
+
 .PHONY: promptfoo
 promptfoo:
-	(cd promptfoo && promptfoo eval --watch --output output.yml --no-progress-bar --suggest-prompts 2 --env-file ./.env)
+	(cd promptfoo && promptfoo eval --watch --output output.yml --no-progress-bar --env-file ./.env)
 
 .PHONY: promptfoo-ui
 promptfoo-ui:

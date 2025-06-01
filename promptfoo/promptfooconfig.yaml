@@ -2,8 +2,15 @@ providers:
 #  - file://http-provider.yaml
   - file://ws-provider.yaml
 
+# Verify condition for all tests
+defaultTest:
+  assert:
+    - type: latency
+      threshold: 5000
+
 scenarios:
   - file://scenarios/chat-memory.yaml
   - file://scenarios/time.yaml
+  - file://scenarios/rag.yaml
   - file://scenarios/stocks.yaml
   - file://scenarios/moderation.yaml

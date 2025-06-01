@@ -51,19 +51,16 @@ class CustomerCallbackScheduler(
                 Mail.withHtml(
                     "callback@horizonfinancial.example",
                     "Customer callback requested",
+                    // language=html
                     """
-                    <html>
-                        <body>
-                            <h1>Callback Requested</h1>
-                            <div>
-                                <b>Customer:</b> $customerName<br>
-                                <b>Phone Number:</b> $phoneNumber<br>
-                                <b>Date and time:</b> $dateAndTime<br>
-                                <b>Customer's problem:</b>
-                                <pre>$problem</pre
-                            </div>
-                        </body>
-                    </html>
+                        <h1>Callback Requested</h1>
+                        <div>
+                            <b>Customer:</b> $customerName<br>
+                            <b>Phone Number:</b> $phoneNumber<br>
+                            <b>Date and time:</b> $dateAndTime<br>
+                            <b>Customer's problem:</b>
+                            <pre>$problem</pre
+                        </div>
                     """,
                 ),
             )

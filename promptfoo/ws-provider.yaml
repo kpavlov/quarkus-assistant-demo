@@ -3,7 +3,7 @@ config:
   url: 'ws://localhost:8080/chatbot'
   messageTemplate: |
     {
-      "message": "{{message}}",
+      "message": "{{query}}",
       "sessionId": "{{sessionId}}",
       "timezoneOffset": {{timezoneOffset}}
     }

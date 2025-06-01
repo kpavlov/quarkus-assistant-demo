@@ -56,6 +56,10 @@
       <artifactId>kotlinx-datetime-jvm</artifactId>
       <version>${kotlinx-datetime.version}</version>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-container-image-jib</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <sourceDirectory>src/main/kotlin</sourceDirectory>

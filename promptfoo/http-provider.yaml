@@ -7,7 +7,7 @@ config:
     Content-Type: application/json
 
     {
-      "message": "{{message}}",
+      "message": "{{query}}",
       "sessionId": "{{sessionId}}",
       "timezoneOffset": {{timezoneOffset}}
     }
