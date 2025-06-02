@@ -10,7 +10,9 @@
 
 [LangChain4J](https://docs.langchain4j.dev/) ([GitHub](https://github.com/langchain4j/langchain4j/)) is a Java library for building AI agents.
 - [langchain4j-kotlin](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-kotlin) - Official LangChain4j Kotlin extensions
-- [github.com/kpavlov/langchain4j-kotlin](https://github.com/kpavlov/langchain4j-kotlin) - Unofficial LangChain4j Kotlin extensions. Many of them have already become official 😎
+- [**kpavlov/langchain4j-kotlin**](https://github.com/kpavlov/langchain4j-kotlin) - Unofficial LangChain4j Kotlin extensions. Many of them have already become official 😎
+- [**lc4j-kotlin-demo**](https://github.com/kpavlov/lc4j-kotlin-demo) - Demo repository containing a collection of examples demonstrating how to use LangChain4j with Kotlin.
+- [Documentation](https://docs.langchain4j.dev/)
 - [Tutorials](https://docs.langchain4j.dev/tutorials) 
   - [AI Services](https://docs.langchain4j.dev/tutorials/ai-services) Higher-level declarative AI integration.
   - [RAG](https://docs.langchain4j.dev/tutorials/rag) - Retrieval-Augmented Generation
