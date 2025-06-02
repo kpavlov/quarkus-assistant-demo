@@ -12,7 +12,7 @@ import kotlinx.datetime.toLocalDateTime
 
 class TimeTool {
 
-    @Tool(name = "time", description = "Returns current time at timezone")
+    @Tool(description = "Returns current time at timezone")
     fun time(
         @ToolArg(description = "Timezone or empty for UTC", required = false)
         timezone: String? = "UTC"
