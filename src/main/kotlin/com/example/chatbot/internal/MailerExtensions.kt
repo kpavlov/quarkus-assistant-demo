@@ -2,14 +2,14 @@ package com.example.chatbot.internal
 
 import io.quarkus.mailer.Mail
 import io.quarkus.mailer.Mailer
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.CoroutineDispatcher
 
 suspend fun Mailer.sendSuspending(
     mail: Mail,
-    dispatcher: kotlinx.coroutines.CoroutineDispatcher,
+    dispatcher: CoroutineDispatcher,
 ) {
     val mailer = this
-    return withContext(dispatcher) {
+    callBlockingApi(dispatcher) {
         mailer.send(mail)
     }
 }
