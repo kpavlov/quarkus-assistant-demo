@@ -1,5 +1,7 @@
 # Links
-     
+           
+[**Slides**](https://speakerdeck.com/kpavlov/langchain4j-quarkus-kotlin-and-testable-ai-devtalks-dot-ro-2025)
+
 ## Quarkus
 - [Quarkus](https://quarkus.io/) - A Kubernetes Native Java stack tailored for OpenJDK HotSpot and GraalVM, crafted from the best of breed Java libraries and standards.
 - [Using Kotlin with Quarkus](https://quarkus.io/guides/kotlin)
