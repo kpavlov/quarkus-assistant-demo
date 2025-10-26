@@ -23,7 +23,7 @@
     <kotest.version>5.9.1</kotest.version>
     <kotlinx-datetime.version>0.6.2</kotlinx-datetime.version>
     <quarkus-langchain4j.version>1.0.0.CR2</quarkus-langchain4j.version>
-    <surefire-plugin.version>3.5.3</surefire-plugin.version>
+    <surefire-plugin.version>3.5.4</surefire-plugin.version>
   </properties>
 
   <dependencyManagement>
